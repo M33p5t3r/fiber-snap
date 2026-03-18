@@ -1,0 +1,58 @@
+{
+ "name": "fiber-snap",
+"displayName": "Fiber Snap",
+"description": "Snap React Three Fiber scenes together from shorthand — Emmet-style abbreviation expansion for R3F.",
+  "version": "0.1.1",
+  "publisher": "abram-manaka",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abram-manaka/fiber-snap"
+  },
+  "keywords": [
+    "react-three-fiber",
+    "r3f",
+    "three.js",
+    "3d",
+    "emmet",
+    "snippets",
+    "jsx",
+    "tsx"
+  ],
+  "activationEvents": [
+  "onLanguage:javascriptreact",
+  "onLanguage:typescriptreact"
+],
+  "main": "./dist/extension.js",
+"contributes": {
+    "configuration": {
+      "title": "R3F Emmet",
+      "properties": {
+        "r3fEmmet.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable R3F Emmet expansion."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+    "watch": "npm run build -- --watch --sourcemap",
+    "package": "npm run build -- --minify",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0",
+    "esbuild": "^0.20.0"
+  }
+}
