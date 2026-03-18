@@ -9,7 +9,7 @@ Type a shorthand abbreviation in any `.jsx` or `.tsx` file, accept the `r3f:` su
 ## Demo
 
 <!-- Replace with your actual GIF -->
-![Fiber Snap demo](https://raw.githubusercontent.com/abram-manaka/fiber-snap/main/demo.gif)
+![Fiber Snap demo](https://raw.githubusercontent.com/M33p5t3r/fiber-snap/main/demo.gif)
 
 ---
 
@@ -99,7 +99,7 @@ Type an abbreviation in a `.jsx` or `.tsx` file and accept the `r3f:` suggestion
 
 Pull requests welcome. The shortcode registry lives in `src/registry.ts` — adding new components is straightforward.
 
-[GitHub →](https://github.com/abram-manaka/fiber-snap)
+[GitHub →](https://github.com/M33p5t3r/fiber-snap)
 
 ---
 
