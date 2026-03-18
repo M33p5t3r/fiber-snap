@@ -2,7 +2,7 @@
  "name": "fiber-snap",
 "displayName": "Fiber Snap",
 "description": "Snap React Three Fiber scenes together from shorthand — Emmet-style abbreviation expansion for R3F.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "abram-manaka",
   "icon": "icon.png",
   "engines": {
