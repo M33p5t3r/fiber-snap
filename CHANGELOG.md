@@ -2,13 +2,17 @@
 
 All notable changes to Fiber Snap will be documented in this file.
 
-## [0.1.5] - 2026-06-27
+## [0.1.6] - 2026-06-27
 
 ### Fixed
 
 - Fixed double-brace wrapping on light intensity props — `intensity={{Math.PI}}` now correctly renders as `intensity={Math.PI}`.
 - Updated README examples to reflect new light intensity defaults.
 - Added CHANGELOG.
+
+### Changed
+
+- Bumped esbuild from 0.25.0 to 0.28.1 (security fix).
 
 ## [0.1.4] - 2026-06-27
 
