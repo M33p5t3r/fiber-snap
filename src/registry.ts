@@ -49,10 +49,10 @@ const materials: Record<string, ComponentDef> = {
 // Math.PI / 2 for ambient and Math.PI for directional/point/spot restores
 // the pre-r155 perceived brightness in physically-based scenes.
 const lights: Record<string, ComponentDef> = {
-    alight:  { tag: 'ambientLight',     props: { intensity: '{Math.PI / 2}' },                                                         selfClosing: true },
-    plight:  { tag: 'pointLight',       props: { position: '[${1:10}, ${2:10}, ${3:10}]', intensity: '{Math.PI}' },                     selfClosing: true },
-    dlight:  { tag: 'directionalLight', props: { position: '[${1:5}, ${2:5}, ${3:5}]', intensity: '{Math.PI}' },                        selfClosing: true },
-    slight:  { tag: 'spotLight',        props: { position: '[${1:5}, ${2:5}, ${3:5}]', angle: '${4:0.3}', intensity: '{Math.PI}' },     selfClosing: true },
+    alight:  { tag: 'ambientLight',     props: { intensity: 'Math.PI / 2' },                                                         selfClosing: true },
+    plight:  { tag: 'pointLight',       props: { position: '[${1:10}, ${2:10}, ${3:10}]', intensity: 'Math.PI' },                      selfClosing: true },
+    dlight:  { tag: 'directionalLight', props: { position: '[${1:5}, ${2:5}, ${3:5}]', intensity: 'Math.PI' },                         selfClosing: true },
+    slight:  { tag: 'spotLight',        props: { position: '[${1:5}, ${2:5}, ${3:5}]', angle: '${4:0.3}', intensity: 'Math.PI' },      selfClosing: true },
     hlight:  { tag: 'hemisphereLight',  props: { args: '["${1:#ffffff}", "${2:#444444}", ${3:Math.PI / 2}]' },                          selfClosing: true },
 };
 
