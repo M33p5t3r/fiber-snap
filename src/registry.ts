@@ -1,6 +1,9 @@
 // ============================================================
 // R3F Component Registry
 // Maps shortcodes → component names, default props, and children
+//
+// IMPORTANT: Registry prop values must NEVER include {} wrapping.
+// renderProps in expander.ts handles all {} wrapping automatically.
 // ============================================================
 
 export interface ComponentDef {
@@ -58,11 +61,18 @@ const lights: Record<string, ComponentDef> = {
 
 // --- Controls (drei) ---
 const controls: Record<string, ComponentDef> = {
-    orbit:       { tag: 'OrbitControls',       selfClosing: true, importFrom: '@react-three/drei' },
-    trackball:   { tag: 'TrackballControls',   selfClosing: true, importFrom: '@react-three/drei' },
-    fly:         { tag: 'FlyControls',         selfClosing: true, importFrom: '@react-three/drei' },
-    pointerlock: { tag: 'PointerLockControls', selfClosing: true, importFrom: '@react-three/drei' },
-    transform:   { tag: 'TransformControls',   selfClosing: true, importFrom: '@react-three/drei' },
+    orbit:          { tag: 'OrbitControls',          selfClosing: true, importFrom: '@react-three/drei' },
+    trackball:      { tag: 'TrackballControls',      selfClosing: true, importFrom: '@react-three/drei' },
+    fly:            { tag: 'FlyControls',            selfClosing: true, importFrom: '@react-three/drei' },
+    pointerlock:    { tag: 'PointerLockControls',    selfClosing: true, importFrom: '@react-three/drei' },
+    transform:      { tag: 'TransformControls',      selfClosing: true, importFrom: '@react-three/drei' },
+    mapcontrols:    { tag: 'MapControls',            selfClosing: true, importFrom: '@react-three/drei' },
+    cameracontrols: { tag: 'CameraControls',         selfClosing: true, importFrom: '@react-three/drei' },
+    presentation:   { tag: 'PresentationControls',   importFrom: '@react-three/drei' },
+    pivot:          { tag: 'PivotControls',           importFrom: '@react-three/drei' },
+    scrollcontrols: { tag: 'ScrollControls',          props: { pages: '${1:3}' }, importFrom: '@react-three/drei' },
+    keyboard:       { tag: 'KeyboardControls',        importFrom: '@react-three/drei' },
+    firstperson:    { tag: 'FirstPersonControls',     selfClosing: true, importFrom: '@react-three/drei' },
 };
 
 // --- Helpers ---
@@ -72,7 +82,7 @@ const helpers: Record<string, ComponentDef> = {
     arrow: { tag: 'arrowHelper',   selfClosing: true },
 };
 
-// --- Drei Components ---
+// --- Drei: Scene & Decorative ---
 const drei: Record<string, ComponentDef> = {
     text:        { tag: 'Text',        props: { fontSize: '${1:1}' },      importFrom: '@react-three/drei' },
     html:        { tag: 'Html',        importFrom: '@react-three/drei' },
@@ -83,6 +93,43 @@ const drei: Record<string, ComponentDef> = {
     cloud:       { tag: 'Cloud',       selfClosing: true, importFrom: '@react-three/drei' },
     sky:         { tag: 'Sky',         selfClosing: true, importFrom: '@react-three/drei' },
     environment: { tag: 'Environment', props: { preset: '"${1:studio}"' }, selfClosing: true, importFrom: '@react-three/drei' },
+};
+
+// --- Drei: Staging & Lighting ---
+const dreiStaging: Record<string, ComponentDef> = {
+    center:         { tag: 'Center',         importFrom: '@react-three/drei' },
+    stage:          { tag: 'Stage',          importFrom: '@react-three/drei' },
+    contactshadows: { tag: 'ContactShadows', props: { position: '[${1:0}, ${2:-0.5}, ${3:0}]', opacity: '${4:0.5}', blur: '${5:2}' }, selfClosing: true, importFrom: '@react-three/drei' },
+    softshadows:    { tag: 'SoftShadows',    selfClosing: true, importFrom: '@react-three/drei' },
+    lightformer:    { tag: 'Lightformer',    props: { intensity: '${1:1}', position: '[${2:0}, ${3:5}, ${4:0}]' }, selfClosing: true, importFrom: '@react-three/drei' },
+    loader:         { tag: 'Loader',         selfClosing: true, importFrom: '@react-three/drei' },
+    preload:        { tag: 'Preload',        selfClosing: true, importFrom: '@react-three/drei' },
+};
+
+// --- Drei: Materials ---
+const dreiMaterials: Record<string, ComponentDef> = {
+    reflector:    { tag: 'MeshReflectorMaterial',     props: { mirror: '${1:0.5}', resolution: '${2:1024}' },                        selfClosing: true, importFrom: '@react-three/drei' },
+    transmission: { tag: 'MeshTransmissionMaterial',  props: { thickness: '${1:0.5}', roughness: '${2:0}' },                         selfClosing: true, importFrom: '@react-three/drei' },
+    distort:      { tag: 'MeshDistortMaterial',       props: { color: '"${1:#ffffff}"', distort: '${2:0.5}', speed: '${3:2}' },       selfClosing: true, importFrom: '@react-three/drei' },
+    wobble:       { tag: 'MeshWobbleMaterial',        props: { color: '"${1:#ffffff}"', factor: '${2:1}', speed: '${3:2}' },          selfClosing: true, importFrom: '@react-three/drei' },
+};
+
+// --- Drei: Shapes & Geometry ---
+const dreiShapes: Record<string, ComponentDef> = {
+    roundedbox: { tag: 'RoundedBox',  props: { args: '[${1:1}, ${2:1}, ${3:1}]', radius: '${4:0.1}' }, importFrom: '@react-three/drei' },
+    text3d:     { tag: 'Text3D',      props: { font: '"${1:/fonts/inter.json}"', size: '${2:1}' },     importFrom: '@react-three/drei' },
+    line:       { tag: 'Line',        props: { points: '[[${1:0}, ${2:0}, ${3:0}], [${4:1}, ${5:1}, ${6:1}]]', color: '"${7:#ffffff}"' }, selfClosing: true, importFrom: '@react-three/drei' },
+    image:      { tag: 'Image',       props: { url: '"${1:/path/to/image.jpg}"' },                      selfClosing: true, importFrom: '@react-three/drei' },
+};
+
+// --- Drei: Performance ---
+const dreiPerformance: Record<string, ComponentDef> = {
+    bake:        { tag: 'BakeShadows',        selfClosing: true, importFrom: '@react-three/drei' },
+    adaptdpr:    { tag: 'AdaptiveDpr',        selfClosing: true, importFrom: '@react-three/drei' },
+    adaptevents: { tag: 'AdaptiveEvents',     selfClosing: true, importFrom: '@react-three/drei' },
+    perfmon:     { tag: 'PerformanceMonitor',  importFrom: '@react-three/drei' },
+    instances:   { tag: 'Instances',           importFrom: '@react-three/drei' },
+    lod:         { tag: 'Detailed',            props: { distances: '[${1:0}, ${2:50}, ${3:100}]' }, importFrom: '@react-three/drei' },
 };
 
 // --- Structural ---
@@ -104,6 +151,10 @@ const allCategories: Record<string, Record<string, ComponentDef>> = {
     controls,
     helpers,
     drei,
+    dreiStaging,
+    dreiMaterials,
+    dreiShapes,
+    dreiPerformance,
     structural,
 };
 
