@@ -33,8 +33,8 @@ Type an abbreviation in a `.jsx` or `.tsx` file and accept the `r3f:` suggestion
 |---|---|
 | `mesh.box` | `<mesh>` with `<boxGeometry />` + `<meshStandardMaterial />` |
 | `mesh.sphere>mat.phong` | Sphere mesh with Phong material |
-| `alight` | `<ambientLight intensity={0.5} />` |
-| `plight` | `<pointLight position={[10, 10, 10]} intensity={1} />` |
+| `alight` | `<ambientLight intensity={Math.PI / 2} />` |
+| `plight` | `<pointLight position={[10, 10, 10]} intensity={Math.PI} />` |
 | `canvas>alight+plight+mesh.box` | Full Canvas setup with lights and a mesh |
 | `group>mesh.box*3` | Group containing 3 box meshes |
 | `orbit` | `<OrbitControls />` (from `@react-three/drei`) |
@@ -100,6 +100,12 @@ Type an abbreviation in a `.jsx` or `.tsx` file and accept the `r3f:` suggestion
 Pull requests welcome. The shortcode registry lives in `src/registry.ts` — adding new components is straightforward.
 
 [GitHub →](https://github.com/M33p5t3r/fiber-snap)
+
+---
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for full release history.
 
 ---
 
