@@ -2,6 +2,19 @@
 
 All notable changes to Fiber Snap will be documented in this file.
 
+## [0.2.0] - 2026-06-27
+
+### Added
+
+- **26 new drei shortcodes** across 5 categories:
+  - **Controls**: `mapcontrols`, `cameracontrols`, `presentation`, `pivot`, `scrollcontrols`, `keyboard`, `firstperson`
+  - **Staging & Lighting**: `center`, `stage`, `contactshadows`, `softshadows`, `lightformer`, `loader`, `preload`
+  - **Materials**: `reflector`, `transmission`, `distort`, `wobble`
+  - **Shapes & Geometry**: `roundedbox`, `text3d`, `line`, `image`
+  - **Performance**: `bake`, `adaptdpr`, `adaptevents`, `perfmon`, `instances`, `lod`
+- Registry reorganized into subcategories for maintainability.
+- Updated README with full shortcode reference and new examples.
+
 ## [0.1.6] - 2026-06-27
 
 ### Fixed

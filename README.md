@@ -41,6 +41,12 @@ Type an abbreviation in a `.jsx` or `.tsx` file and accept the `r3f:` suggestion
 | `environment` | `<Environment preset="studio" />` |
 | `stars` | `<Stars />` |
 | `float>mesh.sphere` | Floating sphere with drei's `<Float>` |
+| `center>mesh.box` | Auto-centered box with drei's `<Center>` |
+| `presentation` | `<PresentationControls>` for drag-to-rotate |
+| `transmission` | `<MeshTransmissionMaterial />` (glass/crystal) |
+| `contactshadows` | `<ContactShadows position={[0, -0.5, 0]} ... />` |
+| `instances` | `<Instances>` for hardware-instanced rendering |
+| `bake+adaptdpr` | Performance combo: baked shadows + adaptive DPR |
 
 ---
 
@@ -67,13 +73,25 @@ Type an abbreviation in a `.jsx` or `.tsx` file and accept the `r3f:` suggestion
 `alight` `plight` `dlight` `slight` `hlight`
 
 ### Controls (drei)
-`orbit` `trackball` `fly` `pointerlock` `transform`
+`orbit` `trackball` `fly` `pointerlock` `transform` `mapcontrols` `cameracontrols` `presentation` `pivot` `scrollcontrols` `keyboard` `firstperson`
 
 ### Helpers
 `axes` `grid` `arrow`
 
-### Drei Components
+### Drei: Scene & Decorative
 `text` `html` `billboard` `float` `sparkles` `stars` `cloud` `sky` `environment`
+
+### Drei: Staging & Lighting
+`center` `stage` `contactshadows` `softshadows` `lightformer` `loader` `preload`
+
+### Drei: Materials
+`reflector` `transmission` `distort` `wobble`
+
+### Drei: Shapes & Geometry
+`roundedbox` `text3d` `line` `image`
+
+### Drei: Performance
+`bake` `adaptdpr` `adaptevents` `perfmon` `instances` `lod`
 
 ### Structural
 `mesh` `group` `canvas` `scene`
