@@ -47,7 +47,7 @@ function parseComponent(token: string): ASTNode {
     const multMatch = body.match(/^(.+)\*(\d+)$/);
     if (multMatch) {
         body = multMatch[1];
-        multiplier = parseInt(multMatch[2], 10);
+        multiplier = Math.min(parseInt(multMatch[2], 10), 100);
     }
 
     // Extract dot modifier: "mesh.box" → shortcode="mesh", dotModifier="box"
